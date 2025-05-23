@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom';
+
 interface Movie {
   id: number;
   title: string;
@@ -13,7 +15,7 @@ interface MovieCardProps {
 
 const MovieCard = ({ movie }: MovieCardProps) => {
   return (
-    <div className="group cursor-pointer">
+    <Link to={`/movie/${movie.id}`} className="group cursor-pointer">
       <div className="relative overflow-hidden rounded-lg bg-gray-200 aspect-[2/3] transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
         <img
           src={movie.poster}
@@ -26,7 +28,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           <p className="text-gray-300 text-xs">{movie.year}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
